@@ -87,7 +87,7 @@ export const DEFAULT_PREFILLED_MESSAGE =
   'Halo Admin, saya ingin membeli SMART Audit SYSTEM seharga Rp497.000. Mohon info nomor rekening / cara pembayarannya untuk akses instan.';
 
 export const DEFAULT_QUESTION_MESSAGE = 
-  'Halo Tim SMART Audit SYSTEM, saya ingin bertanya mengenai isi paket dan modul SMART Audit SYSTEM sebelum memesan. Mohon info dan panduannya.';
+  'Assalamualaikum Admin Smart Audit System , saya,............. mau tanya tentang ............';
 
 export interface WhatsAppTrackingProps {
   position?: string;
@@ -95,8 +95,11 @@ export interface WhatsAppTrackingProps {
 }
 
 export function getWhatsAppUrl(position: string = 'general', customMessage?: string): string {
-  const message = customMessage || DEFAULT_QUESTION_MESSAGE;
-  return `https://wa.me/${CHECKOUT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const message = customMessage !== undefined ? customMessage : DEFAULT_QUESTION_MESSAGE;
+  if (message && message.trim().length > 0) {
+    return `https://wa.me/${CHECKOUT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  }
+  return `https://wa.me/${CHECKOUT_WHATSAPP_NUMBER}`;
 }
 
 function getCookie(name: string): string | undefined {

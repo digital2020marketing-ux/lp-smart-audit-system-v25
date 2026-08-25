@@ -17,6 +17,7 @@ const PriceJustification = lazy(() => import('./components/PriceJustification').
 const RiskReduction = lazy(() => import('./components/RiskReduction').then(m => ({ default: m.RiskReduction })));
 const FinalOffer = lazy(() => import('./components/FinalOffer').then(m => ({ default: m.FinalOffer })));
 const FaqSection = lazy(() => import('./components/FaqSection').then(m => ({ default: m.FaqSection })));
+const LicenseNotice = lazy(() => import('./components/LicenseNotice').then(m => ({ default: m.LicenseNotice })));
 const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp').then(m => ({ default: m.FloatingWhatsApp })));
 const PurchaseNotification = lazy(() => import('./components/PurchaseNotification').then(m => ({ default: m.PurchaseNotification })));
@@ -102,6 +103,9 @@ export default function App() {
 
             {/* Section 16: Comprehensive 15-Question FAQ */}
             <FaqSection />
+
+            {/* Section 17: Pengumuman Lisensi & Akad Penggunaan */}
+            <LicenseNotice />
           </Suspense>
         )}
       </main>
